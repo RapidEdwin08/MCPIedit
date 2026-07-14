@@ -16,3 +16,34 @@ pip3 install pynbt
 ```sh
 ~/.mcpiedit/mcpiedit
 ```
+## Python 3.1x+ mutf8/pynbt Errors
+Traceback (most recent call last):
+  File "/home/pi/.mcpiedit/./main.py", line 8, in <module>
+    from pynbt import NBTFile, TAG_String, TAG_Long, TAG_Int, TAG_Short, TAG_List, TAG_Compound, TAG_Byte
+  File "/usr/local/lib/python3.11/dist-packages/PyNBT-3.1.0-py3.11.egg/pynbt.py", line 23, in <module>
+ModuleNotFoundError: No module named 'mutf8'
+
+Traceback (most recent call last):
+  File "/home/pi/.mcpiedit/./main.py", line 8, in <module>
+    from pynbt import NBTFile, TAG_String, TAG_Long, TAG_Int, TAG_Short, TAG_List, TAG_Compound, TAG_Byte
+ModuleNotFoundError: No module named 'pynbt'
+
+```sh
+sudo apt-get install python3-mutf8 # Unable to locate package python3-mutf8
+sudo dpkg -i ~/python3-mutf8_1.0.6-2+b2_arm64.deb # Error: Dependency is not satisfiable: python3 (>=3.13~)
+```
+## How To Run in isolated virtual environment
+```sh
+# Install mcpiedit prerequisites
+sudo apt-get install python3-venv # Install venv
+python3 -m venv envmcpiedit # Create venv (eg. envmcpiedit)
+source envmcpiedit/bin/activate # Activate venv
+pip3 install mutf8 pynbt # Install required modules in Active venv
+~/.mcpiedit/mcpiedit # Run mcpiedit in Active venv
+deactivate # Deactivate venv
+
+# Run mcpiedit
+source envmcpiedit/bin/activate # Activate venv (envmcpiedit)
+~/.mcpiedit/mcpiedit # Run mcpiedit
+deactivate # Deactivate venv
+```
