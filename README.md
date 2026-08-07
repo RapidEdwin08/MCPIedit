@@ -28,6 +28,11 @@ Traceback (most recent call last):
     from pynbt import NBTFile, TAG_String, TAG_Long, TAG_Int, TAG_Short, TAG_List, TAG_Compound, TAG_Byte
 ModuleNotFoundError: No module named 'pynbt'
 
+Traceback (most recent call last):
+  File "/home/pi/.mcpiedit/./main.py", line 1, in <module>
+    import tkinter as tk
+ModuleNotFoundError: No module named 'tkinter'
+
 ```sh
 sudo apt-get install python3-mutf8 # Unable to locate package python3-mutf8
 sudo dpkg -i ~/python3-mutf8_1.0.6-2+b2_arm64.deb # Error: Dependency is not satisfiable: python3 (>=3.13~)
@@ -35,10 +40,10 @@ sudo dpkg -i ~/python3-mutf8_1.0.6-2+b2_arm64.deb # Error: Dependency is not sat
 ## How To Run in isolated virtual environment
 ```sh
 # Install mcpiedit prerequisites
-sudo apt-get install python3-venv # Install venv
+sudo apt-get install python3-venv python3-tk # Install venv + tk (tkinter)
 python3 -m venv envmcpiedit # Create venv (eg. envmcpiedit)
 source envmcpiedit/bin/activate # Activate venv
-pip3 install mutf8 pynbt # Install required modules in Active venv
+pip3 install mutf8 pynbt tk # Install required modules in Active venv
 ~/.mcpiedit/mcpiedit # Run mcpiedit in Active venv
 deactivate # Deactivate venv
 
