@@ -7,19 +7,7 @@ A Simple Tool For Modifying MCPI Level Files
 ## How To Install/Update
 ```sh
 # Clean up before you begin
-rm -Rf envmcpiedit # Remove 0ld isolated virtual environment
 rm -Rf ~/.mcpiedit # Remove 0ld MCPIedit Folder
-```
-
-```sh
-# Install MCPIedit prerequisites
-sudo apt-get install build-essential python3-venv python3-tk
-
-# Install MCPIedit modules in isolated virtual environment
-python3 -m venv envmcpiedit
-source envmcpiedit/bin/activate
-pip3 install mutf8 pynbt tk
-deactivate
 ```
 
 ```sh
@@ -27,10 +15,21 @@ deactivate
 git clone https://github.com/RapidEdwin08/MCPIedit.git ~/.mcpiedit
 ```
 
+```sh
+# Install MCPIedit prerequisites
+sudo apt-get install build-essential python3-venv python3-tk
+
+# Install MCPIedit modules in isolated virtual environment
+python3 -m venv ~/.mcpiedit/envmcpiedit
+source ~/.mcpiedit/envmcpiedit/bin/activate
+pip3 install mutf8 pynbt tk
+deactivate
+```
+
 ## How To Run
 ```sh
 # Run mcpiedit in isolated virtual environment
-source envmcpiedit/bin/activate
+source ~/.mcpiedit/envmcpiedit/bin/activate
 ~/.mcpiedit/mcpiedit
 deactivate
 ```
